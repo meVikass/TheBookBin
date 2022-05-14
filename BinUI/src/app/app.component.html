@@ -16,7 +16,7 @@
       <p>17</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
       <button *ngIf="!isUserLoggedIn" (click)="onLogin()">Log in</button>
-      <button *ngIf="isUserLoggedIn">Vikas</button>
+      <button (click)="onRegisterNow()">Register</button>
       <i class="fa fa-moon" aria-hidden="true"></i>
     </div>
   </div>
@@ -30,43 +30,6 @@
     (newItemEvent)="showOrHideWindow($event)"
     *ngIf="openLoginWindow === 'true'"
   ></app-login>
-
-  <div class="introduce">
-    <div class="introduce-text">
-      <h1>What Book Are You Looking For?</h1>
-      <p>Not Sure What To Read Next? Explore Our Catalog</p>
-      <p>Of Public Domains Books With Our Editors</p>
-      <div class="btn-wrapper">
-        <button
-          *ngIf="!isUserLoggedIn"
-          (click)="onRegisterNow()"
-          class="btn-explore"
-        >
-          Register Now
-        </button>
-        <button
-          *ngIf="isUserLoggedIn"
-          (click)="onRegisterNow()"
-          class="btn-explore"
-        >
-          Explore Now
-        </button>
-        <i
-          (click)="onRegisterNow()"
-          class="fa fa-long-arrow-right"
-          aria-hidden="true"
-        ></i>
-      </div>
-    </div>
-    <div class="introduce-image"></div>
-  </div>
 </div>
 
-<div class="design-bars">
-  <div class="bar-white"></div>
-  <div class="bar-yellow"></div>
-</div>
-
-<div class="container">
-  <h1 class="primary-heading">Top Trending Books</h1>
-</div>
+<router-outlet></router-outlet>

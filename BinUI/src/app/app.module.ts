@@ -9,9 +9,10 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { UserServiceService } from './services/user-service.service';
 import { LoginComponent } from './login/login.component';
 import { EbooksComponent } from './ebooks/ebooks.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterUserComponent, LoginComponent, EbooksComponent],
+  declarations: [AppComponent, RegisterUserComponent, LoginComponent, EbooksComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
