@@ -1,0 +1,90 @@
+.register-window {
+  display: flex;
+  justify-content: space-between;
+  height: 500px;
+  width: 750px;
+  background-color: #fff;
+  box-shadow: 0 0 30px #000;
+  position: absolute;
+  top: 60px;
+  left: 20%;
+  padding-right: 10px;
+  box-sizing: border-box;
+  animation: popup 0.5s;
+}
+.register-text {
+  width: 150px;
+  background-color: #faff6e;
+  padding: 20px;
+}
+.register-text h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.book-icon {
+  height: 160px;
+  width: 160px;
+  background: url("./images/book-icon-600.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.register-form {
+  padding: 20px 40px;
+  width: 100%;
+}
+.sign-in {
+  display: flex;
+  margin-left: 35%;
+  text-align: center;
+  align-items: center;
+}
+.sign-in p {
+  font-size: 14px;
+  cursor: pointer;
+}
+.sign-in button {
+  height: 30px;
+  width: 70px;
+  margin-left: 20px;
+  background-color: transparent;
+  border: 2px solid #faff6e;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.register-window label {
+  width: 100%;
+  font-size: 14px;
+}
+
+.register-window input {
+  height: 30px;
+  width: 95%;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+.sign-up {
+  margin-top: 20px;
+  height: 40px;
+  width: 150px;
+  background-color: #faff6e;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+.fa-times {
+  margin: 10px 10px 0 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.error {
+  width: 100%;
+  font-size: 10px;
+  color: red;
+  line-height: 0.2;
+  font-weight: 600;
+}

@@ -15,10 +15,17 @@
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       <p>17</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-      <button>Log in</button>
+      <button (click)="onLogin()">Log in</button>
       <i class="fa fa-moon" aria-hidden="true"></i>
     </div>
   </div>
+
+  <app-register-user
+    (newItemEvent)="addItem($event)"
+    *ngIf="openRegistrationWindow"
+  ></app-register-user>
+
+  <app-login *ngIf="openLoginWindow"></app-login>
 
   <div class="introduce">
     <div class="introduce-text">
@@ -26,8 +33,14 @@
       <p>Not Sure What To Read Next? Explore Our Catalog</p>
       <p>Of Public Domains Books With Our Editors</p>
       <div class="btn-wrapper">
-        <button class="btn-explore">Register Now</button>
-        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        <button (click)="onRegisterNow()" class="btn-explore">
+          Register Now
+        </button>
+        <i
+          (click)="onRegisterNow()"
+          class="fa fa-long-arrow-right"
+          aria-hidden="true"
+        ></i>
       </div>
     </div>
     <div class="introduce-image"></div>
