@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="register-window">
+  <div class="register-text">
+    <h3>A Few clicks away from creating your collection of Books</h3>
+    <div class="book-icon"></div>
+  </div>
+  <div class="register-form">
+    <h2>Welcome to The Book Bin</h2>
+    <form action="" [formGroup]="loginForm">
+      <label for=""
+        >Email
+        <p *ngIf="isValid('email')" class="error">Email is required</p>
+        <input formControlName="email" type="text" />
+      </label>
+      <label for=""
+        >Password
+        <p *ngIf="isValid('password')" class="error">Password is required</p>
+        <input formControlName="password" type="text" />
+      </label>
+    </form>
+    <button (click)="onLogin()" class="sign-up">Log in</button>
+    <div class="sign-in-up-btns">
+      <div class="register-div">
+        <p>Don't have an account?</p>
+        <button (click)="closeWindow('register')">Register here</button>
+      </div>
+    </div>
+  </div>
+  <i (click)="closeWindow('close')" class="fa fa-times" aria-hidden="true"></i>
+</div>

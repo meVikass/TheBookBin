@@ -13,13 +13,13 @@
   animation: popup 0.5s;
 }
 .register-text {
-  width: 150px;
-  background-color: #faff6e;
+  width: 40%;
+  background-color: #ecedce;
   padding: 20px;
 }
 .register-text h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 400;
   text-align: left;
 }
 
@@ -37,21 +37,17 @@
 }
 .sign-in {
   display: flex;
-  margin-left: 35%;
-  text-align: center;
-  align-items: center;
+  justify-content: flex-end;
 }
 .sign-in p {
-  font-size: 14px;
+  font-size: 10px;
   cursor: pointer;
 }
 .sign-in button {
-  height: 30px;
-  width: 70px;
-  margin-left: 20px;
+  margin-left: 2px;
+  color: #3c7efa;
   background-color: transparent;
-  border: 2px solid #faff6e;
-  border-radius: 20px;
+  border: none;
   cursor: pointer;
 }
 .register-window label {
@@ -60,19 +56,23 @@
 }
 
 .register-window input {
+  margin-bottom: 10px;
   height: 30px;
   width: 95%;
   border: 1px solid #000;
   border-radius: 0;
 }
 .sign-up {
-  margin-top: 20px;
   height: 40px;
   width: 150px;
-  background-color: #faff6e;
-  border-radius: 50px;
+  background-color: #ff426e;
+  color: #fff;
   border: none;
   cursor: pointer;
+  width: 97%;
+}
+.sign-up:hover {
+  background-color: #f76084;
 }
 .fa-times {
   margin: 10px 10px 0 0;

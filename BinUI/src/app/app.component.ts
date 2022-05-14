@@ -7,18 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'BinUI';
-  openRegistrationWindow = false;
-  openLoginWindow = false;
+  openRegistrationWindow = 'false';
+  openLoginWindow = 'false';
+  isUserLoggedIn = false;
 
   onRegisterNow() {
-    this.openRegistrationWindow = true;
+    this.openRegistrationWindow = 'true';
   }
   onLogin() {
-    this.openLoginWindow = true;
+    this.openLoginWindow = 'true';
   }
   ngOnInit(): void {}
 
-  addItem(newItem: string) {
-    this.openRegistrationWindow = false;
+  showOrHideWindow(newItem: string) {
+    if (newItem === 'login') {
+      this.openRegistrationWindow = 'close';
+      this.openLoginWindow = 'true';
+    } else if (newItem === 'register') {
+      this.openLoginWindow = 'close';
+      this.openRegistrationWindow = 'true';
+    } else {
+      this.openRegistrationWindow = 'close';
+      this.openLoginWindow = 'close';
+    }
   }
 }

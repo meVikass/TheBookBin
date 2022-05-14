@@ -5,9 +5,9 @@
     </div>
     <div class="nav-links">
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Shop</a></li>
-        <li><a href="">Ebooks</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a>Shop</a></li>
+        <li><a routerLink="/ebooks">Ebooks</a></li>
         <li><a href="">Membership</a></li>
       </ul>
     </div>
@@ -15,17 +15,21 @@
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       <p>17</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-      <button (click)="onLogin()">Log in</button>
+      <button *ngIf="!isUserLoggedIn" (click)="onLogin()">Log in</button>
+      <button *ngIf="isUserLoggedIn">Vikas</button>
       <i class="fa fa-moon" aria-hidden="true"></i>
     </div>
   </div>
 
   <app-register-user
-    (newItemEvent)="addItem($event)"
-    *ngIf="openRegistrationWindow"
+    (newItemEvent)="showOrHideWindow($event)"
+    *ngIf="openRegistrationWindow === 'true'"
   ></app-register-user>
 
-  <app-login *ngIf="openLoginWindow"></app-login>
+  <app-login
+    (newItemEvent)="showOrHideWindow($event)"
+    *ngIf="openLoginWindow === 'true'"
+  ></app-login>
 
   <div class="introduce">
     <div class="introduce-text">
@@ -33,8 +37,19 @@
       <p>Not Sure What To Read Next? Explore Our Catalog</p>
       <p>Of Public Domains Books With Our Editors</p>
       <div class="btn-wrapper">
-        <button (click)="onRegisterNow()" class="btn-explore">
+        <button
+          *ngIf="!isUserLoggedIn"
+          (click)="onRegisterNow()"
+          class="btn-explore"
+        >
           Register Now
+        </button>
+        <button
+          *ngIf="isUserLoggedIn"
+          (click)="onRegisterNow()"
+          class="btn-explore"
+        >
+          Explore Now
         </button>
         <i
           (click)="onRegisterNow()"

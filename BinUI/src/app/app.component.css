@@ -17,20 +17,44 @@
 .nav-links ul li a {
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
+  margin-bottom: 2px;
+  position: relative;
 }
+
+.nav-links ul li a::after {
+  transition: 0.5s;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #ff426e;
+  height: 2px;
+}
+
+.nav-links ul li a:hover:after {
+  width: 100%;
+}
+
+/* .nav-links ul li a:hover {
+  border-bottom: 3px solid #ff426e;
+} */
 
 .nav-btns {
   position: relative;
 }
 .nav-btns p {
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   position: absolute;
   top: -20px;
   left: 30px;
-  color: red;
+  color: #9521ed;
   cursor: pointer;
 }
 
@@ -43,8 +67,12 @@
   margin: 0 10px;
   border-radius: 0;
   border: none;
-  background-color: #d9ac18;
+  color: #fff;
+  background-color: #ff426e;
   cursor: pointer;
+}
+.nav-btns button:hover {
+  background-color: #f76084;
 }
 
 .logo h3 {
@@ -67,7 +95,7 @@
 .introduce-image {
   height: 450px;
   width: 450px;
-  background: url("./images/bg-book-1200.png");
+  background: url("./images/bg-book-2.png");
   background-size: cover;
   background-position: center;
 }
@@ -88,6 +116,10 @@
   width: 33%;
   justify-content: space-between;
   cursor: pointer;
+  transition: 0.5s;
+}
+.btn-wrapper:hover {
+  width: 40%;
 }
 .btn-explore {
   background-color: transparent;
@@ -117,7 +149,7 @@
 .bar-yellow {
   height: 30px;
   width: 50%;
-  background-color: #d9ac18;
+  background-color: #ff426e;
 }
 
 /* ===================================== introduce section ===================================== */
