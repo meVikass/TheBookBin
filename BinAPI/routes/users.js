@@ -13,7 +13,7 @@ router.post("/register", (req, res, next) => {
     creationDate: Date.now(),
     isAdmin: req.body.isAdmin || false,
   });
-
+  
   user
     .save()
     .then((doc) => {
@@ -23,9 +23,6 @@ router.post("/register", (req, res, next) => {
       return res.status(501).json({ message: "Error while registration" });
     });
 });
-
-//
-//
 
 router.post("/login", (req, res, next) => {
   User.findOne({ email: req.body.email })
