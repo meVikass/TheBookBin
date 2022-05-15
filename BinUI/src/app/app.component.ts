@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   openRegistrationWindow = 'false';
   openLoginWindow = 'false';
   isUserLoggedIn = false;
+  userName = '';
+  isUserAdmin = false;
 
   onRegisterNow() {
     this.openRegistrationWindow = 'true';
@@ -30,5 +32,10 @@ export class AppComponent implements OnInit {
       this.openRegistrationWindow = 'close';
       this.openLoginWindow = 'close';
     }
+  }
+
+  setUserName(name: string) {
+    this.isUserLoggedIn = true;
+    this.userName = name;
   }
 }

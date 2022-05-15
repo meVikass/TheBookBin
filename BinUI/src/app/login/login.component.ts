@@ -5,6 +5,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -15,8 +16,13 @@ import { UserServiceService } from '../services/user-service.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   @Output() newItemEvent = new EventEmitter<string>();
+  @Output() userNameEvent = new EventEmitter<string>();
+  userData: any;
 
-  constructor(private userApiService: UserServiceService) {
+  constructor(
+    private userApiService: UserServiceService,
+    private router: Router
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
@@ -31,8 +37,12 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.userApiService.loginUser(this.loginForm.value).subscribe(
-      (data) => {
-        localStorage.setItem('token', data.toString());
+      (data: any) => {
+        this.userData = data;
+        this.newItemEvent.emit('false');
+        this.userNameEvent.emit(this.userData.userName);
+        // localStorage.setItem('token', data.toString());
+        this.router.navigate(['/']);
       },
       (error) => {
         console.log('Error');

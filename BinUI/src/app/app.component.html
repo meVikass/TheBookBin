@@ -16,7 +16,12 @@
       <p>17</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
       <button *ngIf="!isUserLoggedIn" (click)="onLogin()">Log in</button>
-      <button (click)="onRegisterNow()">Register</button>
+      <button class="user-btn" *ngIf="userName">
+        {{ userName }} <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </button>
+      <button *ngIf="!isUserLoggedIn" (click)="onRegisterNow()">
+        Register
+      </button>
       <i class="fa fa-moon" aria-hidden="true"></i>
     </div>
   </div>
@@ -27,9 +32,9 @@
   ></app-register-user>
 
   <app-login
+    (userNameEvent)="setUserName($event)"
     (newItemEvent)="showOrHideWindow($event)"
     *ngIf="openLoginWindow === 'true'"
   ></app-login>
 </div>
-
 <router-outlet></router-outlet>

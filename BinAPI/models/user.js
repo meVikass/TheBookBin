@@ -7,6 +7,7 @@ let schema = new Schema({
   userName: { type: String, require: true },
   password: { type: String, require: true },
   creationDate: { type: Date, require: true },
+  isAdmin: { type: Boolean },
 });
 
 schema.statics.hashPassword = function (password) {

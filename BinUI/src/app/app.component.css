@@ -79,3 +79,18 @@
   font-weight: 600;
   font-size: 20px;
 }
+
+.nav-btns .user-btn {
+  padding: 10px;
+  margin: 0 5px 0 10px;
+  border-radius: 0;
+  border: none;
+  border-left: 2px solid #ff426e;
+  color: #000;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.nav-btns .user-btn i {
+  color: #ff426e;
+}
