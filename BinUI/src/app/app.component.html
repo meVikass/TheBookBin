@@ -6,7 +6,6 @@
     <div class="nav-links">
       <ul>
         <li><a routerLink="/">Home</a></li>
-        <li><a>Shop</a></li>
         <li><a routerLink="/ebooks">Ebooks</a></li>
         <li><a href="">Membership</a></li>
       </ul>
@@ -15,11 +14,17 @@
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       <p>17</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-      <button *ngIf="!isUserLoggedIn" (click)="onLogin()">Log in</button>
+      <button class="log-in-btn" *ngIf="!isUserLoggedIn" (click)="onLogin()">
+        Log in
+      </button>
       <button class="user-btn" *ngIf="userName">
         {{ userName }} <i class="fa fa-caret-down" aria-hidden="true"></i>
       </button>
-      <button *ngIf="!isUserLoggedIn" (click)="onRegisterNow()">
+      <button
+        class="register-btn"
+        *ngIf="!isUserLoggedIn"
+        (click)="onRegisterNow()"
+      >
         Register
       </button>
       <i class="fa fa-moon" aria-hidden="true"></i>

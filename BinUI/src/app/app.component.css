@@ -63,18 +63,32 @@
   cursor: pointer;
 }
 .nav-btns button {
-  padding: 10px 20px;
+  padding: 7px 20px;
   margin: 0 10px;
   border-radius: 0;
   border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+.nav-btns .log-in-btn {
   color: #fff;
   background-color: #ff426e;
-  cursor: pointer;
+  border: 2px solid #ff426e;
 }
-.nav-btns button:hover {
-  background-color: #f76084;
+.nav-btns .log-in-btn:hover {
+  background-color: transparent;
+  border: 2px solid #ff426e;
+  color: #000;
 }
-
+.nav-btns .register-btn {
+  border: 2px solid #ff426e;
+  background-color: transparent;
+}
+.nav-btns .register-btn:hover {
+  background-color: #ff426e;
+  color: #fff;
+}
 .logo h3 {
   font-weight: 600;
   font-size: 20px;
