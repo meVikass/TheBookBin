@@ -35,4 +35,14 @@ router.get("/all", (req, res, next) => {
     });
 });
 
+router.get("/:bookId", (req, res, next) => {
+  Book.findById(req.params.bookId)
+    .then((doc) => {
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      return res.status(500).json({ message: "Error occured" });
+    });
+});
+
 module.exports = router;

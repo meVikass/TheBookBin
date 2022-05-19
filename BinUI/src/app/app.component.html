@@ -11,8 +11,12 @@
       </ul>
     </div>
     <div class="nav-btns">
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      <p>17</p>
+      <i
+        routerLink="/favorite"
+        class="fa fa-shopping-cart"
+        aria-hidden="true"
+      ></i>
+      <p>{{ addedItems }}</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
       <button class="log-in-btn" *ngIf="!isUserLoggedIn" (click)="onLogin()">
         Log in

@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   isUserLoggedIn = false;
   userName = '';
   isUserAdmin = false;
+  addedItems = 13;
 
   onRegisterNow() {
     this.openRegistrationWindow = 'true';

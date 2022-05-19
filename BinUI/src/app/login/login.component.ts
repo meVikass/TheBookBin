@@ -6,6 +6,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GlobalService } from '../services/global.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userApiService: UserServiceService,
-    private router: Router
+    private router: Router,
+    private global: GlobalService
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.userApiService.loginUser(this.loginForm.value).subscribe(
       (data: any) => {
         this.userData = data;
+        this.global.loggedInUser = this.userData;
         this.newItemEvent.emit('false');
         this.userNameEvent.emit(this.userData.userName);
         // localStorage.setItem('token', data.toString());

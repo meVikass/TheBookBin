@@ -14,6 +14,7 @@
   margin: 0 20px;
   list-style: none;
 }
+
 .nav-links ul li a {
   text-decoration: none;
   color: #000;
@@ -53,8 +54,8 @@
   font-weight: 600;
   position: absolute;
   top: -20px;
-  left: 30px;
-  color: #9521ed;
+  left: 35px;
+  color: red;
   cursor: pointer;
 }
 

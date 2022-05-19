@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EbookService } from '../services/ebook.service';
+import { LoginComponent } from '../login/login.component';
+import { GlobalService } from '../services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ebooks',
@@ -9,8 +12,15 @@ import { EbookService } from '../services/ebook.service';
 export class EbooksComponent implements OnInit {
   ebooks = [];
   genres = [];
+  selectedGenres = [];
+  activeGenres = 'Horror';
+  selectedEbooks = [{ imagePath: '', bookName: '', authorName: '', price: '' }];
 
-  constructor(private ebook: EbookService) {}
+  constructor(
+    private ebook: EbookService,
+    private global: GlobalService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.ebook.getAllBooks().subscribe(
@@ -30,6 +40,37 @@ export class EbooksComponent implements OnInit {
       genres.push(obj['genres']);
     }
     this.genres = [...new Set(genres.map((item) => item))];
-    console.log(this.genres);
+    this.showBooksByGenres('Romance');
+  }
+
+  showBooksByGenres(genres: string) {
+    this.selectedEbooks = [];
+    this.activeGenres = genres;
+    for (let obj of this.ebooks) {
+      if (obj['genres'] === genres) {
+        this.selectedEbooks.push(obj);
+      }
+    }
+  }
+
+  onAddToCart(bookObj: any) {
+    let body = {
+      userId: this.global.loggedInUser['_id'],
+      bookId: bookObj['_id'],
+    };
+
+    this.ebook.postBookToFav(body).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  showBookDetails(book: any) {
+    this.global.selectedBookForDes = book;
+    this.router.navigate(['/des']);
   }
 }

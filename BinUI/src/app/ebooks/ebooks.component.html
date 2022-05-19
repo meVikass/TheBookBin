@@ -1,0 +1,39 @@
+<div class="ebook-container">
+  <div class="genres">
+    <ul>
+      <li *ngFor="let genres of genres">
+        <button
+          [ngClass]="{ active: activeGenres === genres }"
+          (click)="showBooksByGenres(genres)"
+        >
+          {{ genres }}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ebooks">
+    <div class="grid-c">
+      <div *ngFor="let obj of selectedEbooks" class="item">
+        <div (click)="showBookDetails(obj)" class="item-img">
+          <img src="{{ obj.imagePath }}" />
+        </div>
+        <div class="item-text">
+          <h3>{{ obj["bookName"] }}</h3>
+          <p>By {{ obj["authorName"] }}</p>
+          <p class="price">$ {{ obj["price"] }}</p>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </div>
+          <button class="add-to-cart" (click)="onAddToCart(obj)">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
