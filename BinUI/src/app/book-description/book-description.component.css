@@ -88,3 +88,12 @@ textarea {
   width: 140px;
   padding: 5px 20px;
 }
+
+.reviews h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.reviews p {
+  font-size: 14px;
+  line-height: 0.3;
+}

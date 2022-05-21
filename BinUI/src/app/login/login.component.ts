@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
         this.global.loggedInUser = this.userData;
         this.newItemEvent.emit('false');
         this.userNameEvent.emit(this.userData.userName);
+
         // localStorage.setItem('token', data.toString());
+        console.log(this.userData);
+
         this.router.navigate(['/']);
       },
       (error) => {

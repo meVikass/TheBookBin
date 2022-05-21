@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  constructor(private global: GlobalService) {}
   title = 'BinUI';
   openRegistrationWindow = 'false';
   openLoginWindow = 'false';
   isUserLoggedIn = false;
   userName = '';
   isUserAdmin = false;
-  addedItems = 13;
 
   onRegisterNow() {
     this.openRegistrationWindow = 'true';

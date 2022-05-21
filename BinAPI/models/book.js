@@ -10,6 +10,7 @@ let schema = new Schema({
   rating: { type: Number },
   pageCount: { type: Number },
   creationDate: { type: Date, require: true },
+  comments: [{ userId: String, userName: String, comment: String }],
 });
 
 module.exports = mongoose.model("Book", schema);

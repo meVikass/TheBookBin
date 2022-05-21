@@ -13,7 +13,7 @@ router.post("/register", (req, res, next) => {
     creationDate: Date.now(),
     isAdmin: req.body.isAdmin || false,
   });
-  
+
   user
     .save()
     .then((doc) => {
@@ -40,6 +40,7 @@ router.post("/login", (req, res, next) => {
               expiresIn: "1d",
             }
           );
+
           res.status(200).json(doc);
         } else {
           return res.status(501).json({ message: "Invalid Password" });

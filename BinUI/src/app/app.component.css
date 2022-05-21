@@ -5,7 +5,15 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.logo {
+  background: url("./images/logo-tbb-dark.png");
+  background-position: center;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+}
 .nav-links ul {
   display: flex;
 }
@@ -34,7 +42,7 @@
   width: 0%;
   content: ".";
   color: transparent;
-  background: #ff426e;
+  background: #f32424;
   height: 2px;
 }
 
@@ -74,17 +82,20 @@
 }
 .nav-btns .log-in-btn {
   color: #fff;
-  background-color: #ff426e;
-  border: 2px solid #ff426e;
+  background-color: #f32424;
+  border: 2px solid #f32424;
 }
 .nav-btns .log-in-btn:hover {
   background-color: transparent;
-  border: 2px solid #ff426e;
-  color: #000;
+  border: 2px solid #f32424;
+  color: #f32424;
 }
 .nav-btns .register-btn {
-  border: 2px solid #ff426e;
-  background-color: transparent;
+  border: 2px solid #f32424;
+  background-color: #f32424;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #fff;
 }
 .nav-btns .register-btn:hover {
   background-color: #ff426e;

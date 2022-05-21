@@ -25,4 +25,20 @@ export class EbookService {
       'http://localhost:3000/favorite-books/all/' + userId
     );
   }
+
+  getBookById(bookId: any) {
+    return this.http.get<any>('http://localhost:3000/books/' + bookId);
+  }
+
+  patchComment(bookId: any, body: any) {
+    return this.http.patch('http://localhost:3000/books/' + bookId, body, {
+      observe: 'body',
+    });
+  }
+
+  deleteFavBook(body: any) {
+    return this.http.post('http://localhost:3000/favorite-books/delete', body, {
+      observe: 'body',
+    });
+  }
 }

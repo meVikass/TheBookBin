@@ -51,4 +51,19 @@ const sendGetRequest = async (doc) => {
   return data;
 };
 
+router.post("/delete", (req, res, next) => {
+  console.log("request body");
+  console.log(req.body);
+  Favorite.findOneAndDelete({
+    bookId: req.body.bookId,
+    userId: req.body.userId,
+  })
+    .then((doc) => {
+      return res.status(200).json(doc);
+    })
+    .catch((err) => {
+      console.log("ERRRR.....");
+    });
+});
+
 module.exports = router;

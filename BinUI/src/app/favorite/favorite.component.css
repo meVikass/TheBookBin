@@ -39,6 +39,42 @@ tbody td:nth-child(1) {
 
 .check-out-btn button {
   padding: 10px 20px;
-  background-color: palevioletred;
-  border: none;
+  background-color: #f32424;
+  border: 2px solid #f32424;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.check-out-btn button:hover {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #f32424;
+}
+
+.fa-trash {
+  color: #7a7878;
+  cursor: pointer;
+}
+
+.total {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.cart-total {
+  border: 1px solid #ebebeb;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f7fcff;
+}
+.total-price {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #ebebeb;
+  height: 50px;
+  width: 400px;
 }
