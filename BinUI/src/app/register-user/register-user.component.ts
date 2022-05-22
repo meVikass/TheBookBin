@@ -6,6 +6,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -17,7 +18,10 @@ export class RegisterUserComponent implements OnInit {
   userForm: FormGroup;
   @Output() newItemEvent = new EventEmitter<string>();
 
-  constructor(private userApiService: UserServiceService) {
+  constructor(
+    private userApiService: UserServiceService,
+    private router: Router
+  ) {
     this.userForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       userName: new FormControl(null, Validators.required),
@@ -60,6 +64,7 @@ export class RegisterUserComponent implements OnInit {
     this.userApiService.postUser(this.userForm.value).subscribe(
       (data) => {
         this.successMessage = 'Success';
+        this.closeWindow('success');
       },
       (error) => {
         this.successMessage = 'Error';

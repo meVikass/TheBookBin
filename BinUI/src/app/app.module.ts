@@ -12,9 +12,10 @@ import { EbooksComponent } from './ebooks/ebooks.component';
 import { HomeComponent } from './home/home.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BookDescriptionComponent } from './book-description/book-description.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterUserComponent, LoginComponent, EbooksComponent, HomeComponent, FavoriteComponent, BookDescriptionComponent],
+  declarations: [AppComponent, RegisterUserComponent, LoginComponent, EbooksComponent, HomeComponent, FavoriteComponent, BookDescriptionComponent, OrdersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -18,7 +18,7 @@ export class EbookService {
   }
 
   getFavoriteBooks(user: any) {
-    let userId = user['_id'];
+    let userId = user['userId'];
     let body = { userID: userId };
 
     return this.http.get<any>(
@@ -40,5 +40,16 @@ export class EbookService {
     return this.http.post('http://localhost:3000/favorite-books/delete', body, {
       observe: 'body',
     });
+  }
+
+  checkOutOrder(body: any) {
+    return this.http.post('http://localhost:3000/order/add', body, {
+      observe: 'body',
+    });
+  }
+
+  getOrderDetails(userId: any) {
+    let body = { userID: userId };
+    return this.http.get<any>('http://localhost:3000/order/all/' + userId);
   }
 }

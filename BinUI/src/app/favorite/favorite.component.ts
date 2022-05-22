@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EbookService } from '../services/ebook.service';
 import { GlobalService } from '../services/global.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-favorite',
@@ -8,12 +10,29 @@ import { GlobalService } from '../services/global.service';
   styleUrls: ['./favorite.component.css'],
 })
 export class FavoriteComponent implements OnInit {
-  constructor(private global: GlobalService, private ebook: EbookService) {}
+  constructor(
+    private global: GlobalService,
+    private ebook: EbookService,
+    private user: UserServiceService,
+    private router: Router
+  ) {
+    this.user.getUserDetails().subscribe(
+      (data) => {
+        this.global.loggedInUser = data;
 
-  favoriteBooks = [{ imagePath: '', price: '', bookName: '' }];
+        this.getBooks();
+      },
+      (err) => {
+        router.navigate(['/']);
+        console.log(err);
+      }
+    );
+  }
+
+  favoriteBooks = [{ _id: '', imagePath: '', price: '', bookName: '' }];
   cartTotal: any;
   ngOnInit(): void {
-    this.getBooks();
+    // this.getBooks();
   }
   getBooks() {
     let total = 0;
@@ -33,7 +52,7 @@ export class FavoriteComponent implements OnInit {
   }
   deleteFromFav(book: any) {
     let body = {
-      userId: this.global.loggedInUser['_id'],
+      userId: this.global.loggedInUser['userId'],
       bookId: book['_id'],
     };
 
@@ -47,5 +66,23 @@ export class FavoriteComponent implements OnInit {
       }
     );
   }
-  checkOut() {}
+  checkOut() {
+    for (let book of this.favoriteBooks) {
+      let body = {
+        userId: this.global.loggedInUser['userId'],
+        bookId: book._id,
+      };
+      this.ebook.checkOutOrder(body).subscribe(
+        (data) => {
+          console.log(data);
+          for (let book of this.favoriteBooks) {
+            this.deleteFromFav(book);
+          }
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
+  }
 }
