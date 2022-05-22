@@ -1,0 +1,99 @@
+.book {
+  display: flex;
+}
+.book-img {
+  padding: 40px 40px 0 0;
+}
+.book-img img {
+  width: 250px;
+  height: 350px;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+}
+.book-details h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.book-details .author-name {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.stars {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+.fa-star {
+  font-size: 14px;
+  color: #f7c00a;
+  margin-right: 5px;
+}
+
+.add-to-cart {
+  margin-top: 10px;
+  width: 75%;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  background-color: #ecedce;
+  color: #000;
+}
+.emojis {
+  margin: 0 0 20px 0;
+}
+
+.emojis h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.emojis .fa {
+  margin-right: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.emojis .fa:hover {
+  font-size: 2.7rem;
+}
+.emojis .given-rate {
+  font-size: 2.7rem;
+}
+.fa-frown {
+  font-size: 2rem;
+  color: red;
+}
+.fa-meh {
+  font-size: 2rem;
+  color: orange;
+}
+.fa-smile {
+  font-size: 2rem;
+  color: green;
+}
+
+label {
+  width: 100%;
+}
+textarea {
+  width: 100%;
+}
+
+.submit {
+  width: 140px;
+  padding: 5px 20px;
+}
+
+.reviews h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.reviews p {
+  font-size: 14px;
+  line-height: 0.3;
+}

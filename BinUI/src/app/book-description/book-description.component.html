@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="book">
+    <div class="book-img">
+      <img src="{{ selectedBook.imagePath }}" alt="" />
+      <button class="add-to-cart">Add to cart</button>
+    </div>
+
+    <div class="book-details">
+      <h2>{{ selectedBook.bookName }}</h2>
+      <p class="author-name">By {{ selectedBook.authorName }}</p>
+      <div class="stars">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+      <div class="emojis">
+        <h4>Rate your experience</h4>
+        <i
+          [ngClass]="{ 'given-rate': selectedRating === 1 }"
+          (click)="onUserRating(1)"
+          class="fa fa-frown"
+          aria-hidden="true"
+        ></i>
+        <i
+          [ngClass]="{ 'given-rate': selectedRating === 3 }"
+          (click)="onUserRating(3)"
+          class="fa fa-meh"
+          aria-hidden="true"
+        ></i>
+        <i
+          [ngClass]="{ 'given-rate': selectedRating === 5 }"
+          (click)="onUserRating(5)"
+          class="fa fa-smile"
+          aria-hidden="true"
+        ></i>
+      </div>
+      <label
+        >Your Comments
+        <textarea
+          class="comm"
+          #comment
+          name=""
+          id=""
+          cols="55"
+          rows="12"
+        ></textarea>
+      </label>
+      <button (click)="onSubmit(comment)" class="submit">Submit</button>
+
+      <div *ngFor="let comment of selectedBookComments" class="reviews">
+        <h3>{{ comment["userName"] }}</h3>
+        <div class="stars">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <p>{{ comment["comment"] }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 const express = require("express");
 let router = express.Router();
 let Book = require("../models/book");
+const axios = require("axios");
 
 router.post("/new-book", (req, res, next) => {
   let book = new Book({
@@ -32,6 +33,26 @@ router.get("/all", (req, res, next) => {
     })
     .catch((err) => {
       return res.status(501).json({ message: "Error occured" });
+    });
+});
+
+router.get("/:bookId", (req, res, next) => {
+  Book.findById(req.params.bookId)
+    .then((doc) => {
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      return res.status(500).json({ message: "Error occured" });
+    });
+});
+
+router.patch("/:bookId", (req, res, next) => {
+  Book.findByIdAndUpdate(req.params.bookId, req.body)
+    .then((doc) => {
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      return res.status(500).json({ message: "Error occured" });
     });
 });
 

@@ -1,36 +1,46 @@
 .register-window {
   display: flex;
   justify-content: space-between;
-  height: 400px;
+  height: auto;
   width: 750px;
   background-color: #fff;
-  box-shadow: 0 0 30px #000;
+  box-shadow: 0 0 100px #000;
   position: absolute;
   top: 60px;
   left: 20%;
   padding-right: 10px;
   box-sizing: border-box;
   animation: popup 0.5s;
-  border-radius: 10px;
+  z-index: 20;
 }
 .register-text {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   width: 50%;
-  background-color: #ecedce;
+  background-color: #f32424;
   padding: 20px;
 }
 .register-text h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
+  line-height: 1.2;
+  font-size: 3rem;
+  font-weight: 600;
   text-align: left;
+  color: #fff;
+}
+.register-text p {
+  font-size: 14px;
+  color: #fff;
+  text-align: left;
+  width: 60%;
 }
 .register-form {
   padding: 20px 40px;
-  width: 100%;
+  width: 50%;
 }
 
 .register-form h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.register-form span {
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -46,18 +56,24 @@
   width: 95%;
   border: 1px solid #000;
   border-radius: 0;
+  border-radius: 2px;
 }
 .sign-up {
   height: 40px;
   width: 150px;
-  background-color: #ff426e;
+  background-color: #f32424;
   color: #fff;
   border: none;
   cursor: pointer;
   width: 97%;
+  border-radius: 2px;
+  transition: 0.3s;
+  border: 2px solid #f32424;
 }
 .sign-up:hover {
-  background-color: #f76084;
+  background-color: transparent;
+  border: 2px solid #f32424;
+  color: #f32424;
 }
 .fa-times {
   margin: 10px 10px 0 0;
@@ -93,7 +109,8 @@
   background-color: transparent;
   cursor: pointer;
   border: none;
-  color: #3c7efa;
+  color: #3145f5;
+  font-weight: 500;
 }
 
 .book-icon {

@@ -1,31 +1,49 @@
 <div class="container">
+  <div *ngIf="registrationSuccess" class="register-success">
+    <p>Registration successful! Please Log in to continue.</p>
+  </div>
+
   <div class="navigation-bar">
-    <div class="logo">
-      <h3>The Book Bin</h3>
-    </div>
+    <div class="logo"></div>
     <div class="nav-links">
       <ul>
         <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/ebooks">Ebooks</a></li>
-        <li><a href="">Membership</a></li>
+        <li><a routerLink="/ebooks">Our Books Collection</a></li>
+        <li>
+          <a *ngIf="!isUserLoggedIn" (click)="onRegisterNow()"
+            >Become a Member</a
+          >
+        </li>
       </ul>
     </div>
     <div class="nav-btns">
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      <p>17</p>
+      <i
+        routerLink="/favorite"
+        class="fa fa-shopping-cart"
+        aria-hidden="true"
+      ></i>
+      <p>.</p>
       <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-      <button class="log-in-btn" *ngIf="!isUserLoggedIn" (click)="onLogin()">
+      <button
+        class="nav-btn log-in-btn"
+        *ngIf="!isUserLoggedIn"
+        (click)="onLogin()"
+      >
         Log in
       </button>
-      <button class="user-btn" *ngIf="userName">
-        {{ userName }} <i class="fa fa-caret-down" aria-hidden="true"></i>
-      </button>
-      <button
-        class="register-btn"
-        *ngIf="!isUserLoggedIn"
-        (click)="onRegisterNow()"
-      >
-        Register
+      <button (click)="showLogOutWindow()" class="user-btn" *ngIf="userName">
+        {{ userName }}
+        <i class="fa fa-caret-down" aria-hidden="true">
+          <div *ngIf="openLogOutWindow" class="user-options">
+            <button routerLink="/orders" class="user-options-btn">
+              My Orders
+            </button>
+            <button class="user-options-btn">E-Books</button>
+            <button (click)="onLogOut()" class="user-options-btn">
+              Log out
+            </button>
+          </div>
+        </i>
       </button>
       <i class="fa fa-moon" aria-hidden="true"></i>
     </div>

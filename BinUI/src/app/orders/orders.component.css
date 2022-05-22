@@ -1,0 +1,81 @@
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+img {
+  height: 60px;
+  width: 50px;
+}
+
+th {
+  background-color: #f7fcff;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+tbody tr {
+  border: 1px solid #ebebeb;
+  padding: 5px;
+}
+tbody td {
+  border: 1px solid #ebebeb;
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+}
+
+tbody td:nth-child(1) {
+  text-align: center;
+}
+.check-out-btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.check-out-btn button {
+  padding: 10px 20px;
+  background-color: #f32424;
+  border: 2px solid #f32424;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.check-out-btn button:hover {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #f32424;
+}
+
+.fa-trash {
+  color: #7a7878;
+  cursor: pointer;
+}
+
+.total {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.cart-total {
+  border: 1px solid #ebebeb;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f7fcff;
+}
+.total-price {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  border: 1px solid #ebebeb;
+  height: 50px;
+  width: 400px;
+  padding-right: 50px;
+}

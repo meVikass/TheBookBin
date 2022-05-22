@@ -1,5 +1,7 @@
 let usersRouter = require("./routes/users");
 let bookRouter = require("./routes/books");
+let favoriteRouter = require("./routes/favorite");
+let orderRouter = require("./routes/orders");
 
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/BookBin");
@@ -20,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/users", usersRouter);
 app.use("/books", bookRouter);
+app.use("/favorite-books", favoriteRouter);
+app.use("/order", orderRouter);
 
 app.listen(PORT, () => {
   console.log("Server is running on port " + PORT);
