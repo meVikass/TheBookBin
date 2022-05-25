@@ -15,7 +15,7 @@
 }
 .register-text {
   width: 50%;
-  background-color: #f32424;
+  background-color: #541690;
   padding: 20px;
 }
 .register-text h3 {
@@ -80,22 +80,23 @@
   border: 1px solid #000;
   border-radius: 2px;
 }
+
 .sign-up {
   height: 40px;
   width: 150px;
-  background-color: #f32424;
+  background-color: #541690;
   color: #fff;
   border: none;
   cursor: pointer;
   width: 97%;
   border-radius: 2px;
   transition: 0.3s;
-  border: 2px solid #f32424;
+  border: 2px solid #541690;
 }
 .sign-up:hover {
   background-color: transparent;
-  border: 2px solid #f32424;
-  color: #f32424;
+  border: 2px solid #541690;
+  color: #541690;
 }
 .fa-times {
   margin: 10px 10px 0 0;
@@ -110,4 +111,21 @@
   color: red;
   line-height: 0.2;
   font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .register-window {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 80%;
+  }
+
+  .register-text {
+    display: none;
+  }
+  .register-form {
+    padding: 20px 40px;
+    width: 100%;
+  }
 }

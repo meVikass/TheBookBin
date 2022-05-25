@@ -1,0 +1,61 @@
+<div class="register-book-container">
+  <div class="container">
+    <div class="input-container">
+      <form action="" [formGroup]="bookForm">
+        <div class="input-text">
+          <div class="input-wrapper">
+            <label for="">Book Name</label>
+            <p *ngIf="isValid('bookName')" class="error">Required</p>
+            <input formControlName="bookName" type="text" />
+          </div>
+
+          <div class="input-wrapper">
+            <label for="">Author Name</label>
+            <p *ngIf="isValid('authorName')" class="error">Required</p>
+            <input formControlName="authorName" type="text" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Image Path</label>
+            <p *ngIf="isValid('imagePath')" class="error">Required</p>
+            <input
+              formControlName="imagePath"
+              [(ngModel)]="image"
+              type="text"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Generes</label>
+            <p *ngIf="isValid('generes')" class="error">Required</p>
+            <select formControlName="generes">
+              <option value="Horror">Horror</option>
+              <option value="Romance">Romance</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Action">Action</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <label for="">Year</label>
+            <input formControlName="year" type="text" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Page Count</label>
+            <input formControlName="pageCount" type="text" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Price</label>
+            <p *ngIf="isValid('price')" class="error">Required</p>
+            <input formControlName="price" type="text" />
+          </div>
+        </div>
+      </form>
+
+      <div class="input-image">
+        <img src="{{ image }}" alt="image preview" />
+      </div>
+    </div>
+    <button (click)="onSubmit()">Submit</button>
+  </div>
+</div>

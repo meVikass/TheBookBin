@@ -5,6 +5,9 @@
   </div>
   <div class="register-form">
     <h2>Welcome to <span>The Book Bin</span></h2>
+    <div *ngIf="InvalidCred" class="invalid-cred">
+      <p>Invalid User name or Password !</p>
+    </div>
     <form action="" [formGroup]="loginForm">
       <label for=""
         >Email
@@ -14,7 +17,7 @@
       <label for=""
         >Password
         <p *ngIf="isValid('password')" class="error">Password is required</p>
-        <input formControlName="password" type="text" />
+        <input formControlName="password" type="password" />
       </label>
     </form>
     <button (click)="onLogin()" class="sign-up">Log in</button>

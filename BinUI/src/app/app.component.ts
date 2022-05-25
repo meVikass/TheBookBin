@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
       (data) => {
         this.isUserLoggedIn = true;
         this.loggedInUser = data;
+        if (this.loggedInUser.isAdmin === true) this.isUserAdmin = true;
         this.setUserDetails();
       },
       (err) => {
@@ -82,6 +83,6 @@ export class AppComponent implements OnInit {
   onLogOut() {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
-    window.location.href = 'http://localhost:4200/';
+    window.location.reload();
   }
 }

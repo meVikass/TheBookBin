@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() userNameEvent = new EventEmitter<string>();
   userData: any;
+  InvalidCred = false;
 
   constructor(
     private userApiService: UserServiceService,
@@ -49,7 +50,10 @@ export class LoginComponent implements OnInit {
         window.location.reload();
       },
       (error) => {
-        console.log('Error');
+        this.InvalidCred = true;
+        setTimeout(() => {
+          this.InvalidCred = false;
+        }, 3000);
       }
     );
   }

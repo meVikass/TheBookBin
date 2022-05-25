@@ -11,6 +11,11 @@ export class EbookService {
     return this.http.get<any>('http://localhost:3000/books/all');
   }
 
+  postANewBook(body: any) {
+    return this.http.post('http://localhost:3000/books/new-book', body, {
+      observe: 'body',
+    });
+  }
   postBookToFav(body: any) {
     return this.http.post('http://localhost:3000/favorite-books/add', body, {
       observe: 'body',

@@ -1,5 +1,5 @@
-<div class="container">
-  <h3>Cart</h3>
+<div *ngIf="!emptyCart" class="container">
+  <h3>Your cart</h3>
   <table>
     <tr>
       <th></th>
@@ -38,5 +38,11 @@
   </div>
   <div class="check-out-btn">
     <button (click)="checkOut()">PROCEED TO CHECKOUT</button>
+  </div>
+</div>
+
+<div *ngIf="emptyCart" class="container">
+  <div class="no-items-parent">
+    <div class="no-items"></div>
   </div>
 </div>

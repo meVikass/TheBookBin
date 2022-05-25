@@ -1,62 +1,124 @@
-<div class="container">
-  <div *ngIf="registrationSuccess" class="register-success">
-    <p>Registration successful! Please Log in to continue.</p>
-  </div>
-
-  <div class="navigation-bar">
+<div *ngIf="registrationSuccess" class="register-success">
+  <p>Registration successful! Please Log in to continue.</p>
+</div>
+<div class="menu">
+  <div class="logo-stick">
     <div class="logo"></div>
-    <div class="nav-links">
-      <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/ebooks">Our Books Collection</a></li>
-        <li>
-          <a *ngIf="!isUserLoggedIn" (click)="onRegisterNow()"
-            >Become a Member</a
+  </div>
+</div>
+<div class="navigation-bar">
+  <div class="logo"></div>
+  <div class="nav-links">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+
+      <li><a routerLink="/ebooks">Our Book Collection</a></li>
+      <li *ngIf="isUserAdmin">
+        <div class="new-book">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <button routerLink="/register-book" class="add-new-book" href="">
+            Add a new book
+          </button>
+        </div>
+      </li>
+      <li>
+        <a *ngIf="!isUserLoggedIn" (click)="onRegisterNow()">Become a Member</a>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-btns">
+    <i
+      routerLink="/favorite"
+      class="fa fa-shopping-cart"
+      aria-hidden="true"
+    ></i>
+    <p>.</p>
+    <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
+    <button
+      class="nav-btn log-in-btn"
+      *ngIf="!isUserLoggedIn"
+      (click)="onLogin()"
+    >
+      Log in
+    </button>
+    <button (click)="showLogOutWindow()" class="user-btn" *ngIf="userName">
+      {{ userName }}
+      <i class="fa fa-caret-down" aria-hidden="true">
+        <div *ngIf="openLogOutWindow" class="user-options">
+          <button
+            *ngIf="isUserAdmin"
+            routerLink="/admin-dashboard"
+            class="user-options-btn"
           >
-        </li>
+            Dashboard
+          </button>
+          <button routerLink="/orders" class="user-options-btn">
+            My Orders
+          </button>
+          <button routerLink="/ebooks" class="user-options-btn">E-Books</button>
+          <button (click)="onLogOut()" class="user-options-btn">Log out</button>
+        </div>
+      </i>
+    </button>
+    <i class="fa fa-moon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<app-register-user
+  (newItemEvent)="showOrHideWindow($event)"
+  *ngIf="openRegistrationWindow === 'true'"
+></app-register-user>
+
+<app-login
+  (userNameEvent)="setUserName($event)"
+  (newItemEvent)="showOrHideWindow($event)"
+  *ngIf="openLoginWindow === 'true'"
+></app-login>
+
+<router-outlet></router-outlet>
+
+<!-- =============================== Footer =============================== -->
+<footer>
+  <div class="footer-logo">
+    <div class="logo"></div>
+  </div>
+  <div class="footer-div">
+    <div class="my-account">
+      <p>THE BOOK BIN</p>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">My Wishlist/Cart</a></li>
+        <li><a href="#">E-Books</a></li>
+        <li><a href="#">Frequently Asked Question</a></li>
       </ul>
     </div>
-    <div class="nav-btns">
-      <i
-        routerLink="/favorite"
-        class="fa fa-shopping-cart"
-        aria-hidden="true"
-      ></i>
-      <p>.</p>
-      <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-      <button
-        class="nav-btn log-in-btn"
-        *ngIf="!isUserLoggedIn"
-        (click)="onLogin()"
-      >
-        Log in
-      </button>
-      <button (click)="showLogOutWindow()" class="user-btn" *ngIf="userName">
-        {{ userName }}
-        <i class="fa fa-caret-down" aria-hidden="true">
-          <div *ngIf="openLogOutWindow" class="user-options">
-            <button routerLink="/orders" class="user-options-btn">
-              My Orders
-            </button>
-            <button class="user-options-btn">E-Books</button>
-            <button (click)="onLogOut()" class="user-options-btn">
-              Log out
-            </button>
-          </div>
-        </i>
-      </button>
+    <div class="policies">
+      <p>POLICIES</p>
+      <ul>
+        <li><a href="#">Payment Options</a></li>
+        <li><a href="#">Terms & Conditions of Use</a></li>
+        <li><a href="#">Terms & Conditions of Membership Program</a></li>
+        <li><a href="#">Offer Terms & Conditions</a></li>
+        <li><a href="#">Returns & Exchange Policy</a></li>
+      </ul>
+    </div>
+    <div class="contact-about">
+      <div class="contact">
+        <p>CONTACT US</p>
+        <ul>
+          <li><a href="#">Customer Support</a></li>
+          <li><a href="#">Store Locations</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="social">
+      <ul>
+        <p>SOCIAL</p>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
     </div>
   </div>
-
-  <app-register-user
-    (newItemEvent)="showOrHideWindow($event)"
-    *ngIf="openRegistrationWindow === 'true'"
-  ></app-register-user>
-
-  <app-login
-    (userNameEvent)="setUserName($event)"
-    (newItemEvent)="showOrHideWindow($event)"
-    *ngIf="openLoginWindow === 'true'"
-  ></app-login>
-</div>
-<router-outlet></router-outlet>
+</footer>

@@ -15,6 +15,8 @@ export class EbooksComponent implements OnInit {
   selectedGenres = [];
   activeGenres = 'Horror';
   selectedEbooks = [{ imagePath: '', bookName: '', authorName: '', price: '' }];
+  successMessage = false;
+  addedBookName = '';
 
   constructor(
     private ebook: EbookService,
@@ -54,6 +56,7 @@ export class EbooksComponent implements OnInit {
   }
 
   onAddToCart(bookObj: any) {
+    this.addedBookName = bookObj.bookName;
     let body = {
       userId: this.global.loggedInUser['userId'],
       bookId: bookObj['_id'],
@@ -61,7 +64,10 @@ export class EbooksComponent implements OnInit {
 
     this.ebook.postBookToFav(body).subscribe(
       (data) => {
-        console.log(data);
+        this.successMessage = true;
+        setTimeout(() => {
+          this.successMessage = false;
+        }, 2000);
       },
       (err) => {
         console.log(err);

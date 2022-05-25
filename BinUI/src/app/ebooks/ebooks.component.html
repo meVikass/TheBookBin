@@ -6,6 +6,7 @@
           [ngClass]="{ active: activeGenres === genres }"
           (click)="showBooksByGenres(genres)"
         >
+          <i class="fa fa-caret-right" aria-hidden="true"></i>
           {{ genres }}
         </button>
       </li>
@@ -13,6 +14,10 @@
   </div>
 
   <div class="ebooks">
+    <div *ngIf="successMessage" class="success-message">
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <p>{{ addedBookName }} added to cart</p>
+    </div>
     <div class="grid-c">
       <div *ngFor="let obj of selectedEbooks" class="item">
         <div (click)="showBookDetails(obj)" class="item-img">
@@ -30,7 +35,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
           </div>
           <button class="add-to-cart" (click)="onAddToCart(obj)">
-            Add to cart
+            Add to Cart
           </button>
         </div>
       </div>

@@ -20,14 +20,14 @@
       <label for=""
         >Password
         <p *ngIf="isValid('password')" class="error">Password is required</p>
-        <input formControlName="password" type="text" />
+        <input formControlName="password" type="password" />
       </label>
       <label for=""
         >Confirm Password
         <p *ngIf="isValid('confirmPassword')" class="error">
           Password doesn't match
         </p>
-        <input formControlName="confirmPassword" type="text" />
+        <input formControlName="confirmPassword" type="password" />
       </label>
     </form>
     <button (click)="onRegister()" class="sign-up">Sign up</button>

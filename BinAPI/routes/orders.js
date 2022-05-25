@@ -1,8 +1,15 @@
+// The Book Bin [Training Project]
+// Team - DEV-3 [Jyoti Sinha, Shivangi Shivhare, Akrish Kumar Singh, Kritika Singh, Sourabh Rana]
+// Created by - Vikas Sharma
+// Employee Id- 2097600
+
 const express = require("express");
 let router = express.Router();
 let Order = require("../models/order");
 const axios = require("axios");
 
+// @desc When a user will buy a new book from the cart.
+// @route POST order/add
 router.post("/add", (req, res, next) => {
   let order = new Order({
     bookId: req.body.bookId,
@@ -19,6 +26,8 @@ router.post("/add", (req, res, next) => {
     });
 });
 
+// @desc This will return all purchased books for a particular user.
+// @route POST favorite-books/add
 router.get("/all/:userId", (req, res, next) => {
   let data = [];
   Order.find({ userId: req.params.userId })
@@ -36,6 +45,7 @@ router.get("/all/:userId", (req, res, next) => {
     });
 });
 
+// @desc This will return an array of book objects.
 const sendGetRequest = async (doc) => {
   let data = [];
   for (let obj of doc) {
