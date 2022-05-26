@@ -1,3 +1,6 @@
+h3 {
+  font-weight: 600;
+}
 table {
   width: 100%;
   text-align: center;
@@ -10,19 +13,20 @@ img {
 }
 
 th {
-  background-color: #f7fcff;
+  background-color: #f4f0ff;
   padding: 10px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #e5dbff;
   font-size: 0.8rem;
   font-weight: 600;
 }
 
 tbody tr {
-  border: 1px solid #ebebeb;
+  border: 1px solid #e5dbff;
   padding: 5px;
+  animation: fromright 0.3s;
 }
 tbody td {
-  border: 1px solid #ebebeb;
+  border: 1px solid #e5dbff;
   margin: 0;
   padding: 10px;
   font-size: 14px;
@@ -62,20 +66,32 @@ tbody td:nth-child(1) {
   justify-content: flex-end;
 }
 .cart-total {
-  border: 1px solid #ebebeb;
+  border: 1px solid #e5dbff;
   height: 50px;
   width: 150px;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  background-color: #f7fcff;
+  background-color: #f4f0ff;
 }
 .total-price {
   font-size: 14px;
   font-weight: 600;
   text-align: right;
-  border: 1px solid #ebebeb;
+  border: 1px solid #e5dbff;
   height: 50px;
   width: 400px;
   padding-right: 50px;
+}
+.no-items-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.no-items {
+  height: 50vh;
+  width: 50vh;
+  background: url("./images/no-items.png");
+  background-position: center;
+  background-size: cover;
 }

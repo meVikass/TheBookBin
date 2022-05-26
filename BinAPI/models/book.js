@@ -11,6 +11,7 @@ let schema = new Schema({
   pageCount: { type: Number },
   creationDate: { type: Date, require: true },
   comments: [{ userId: String, userName: String, comment: String }],
+  imagePath: { type: String },
 });
 
 module.exports = mongoose.model("Book", schema);

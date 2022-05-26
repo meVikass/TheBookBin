@@ -26,4 +26,8 @@ export class UserServiceService {
       params: new HttpParams().append('token', token),
     });
   }
+
+  getallUsers() {
+    return this.http.get('http://localhost:3000/users/all-users');
+  }
 }

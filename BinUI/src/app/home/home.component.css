@@ -5,7 +5,7 @@
 .bar-white {
   height: 30px;
   width: 50%;
-  background-color: #f32424;
+  background-color: #f4f0ff;
 }
 .bar-yellow {
   height: 30px;
@@ -28,7 +28,7 @@
 .introduce-image {
   height: 450px;
   width: 450px;
-  background: url("./images/bg-book-2.png");
+  background: url("./images/bg-book-light.png");
   background-size: cover;
   background-position: center;
 }
@@ -64,11 +64,12 @@
   font-size: 2rem;
   font-weight: 200;
   padding: 5px;
+}
+.btn-wrapper .fa-long-arrow-right {
   background-color: #000;
   color: #fff;
   border-left: 2px solid #000;
 }
-
 /* ===================================== introduce section ===================================== */
 .primary-heading {
   font-family: "Cinzel", serif;
@@ -88,12 +89,13 @@
   margin: 40px 0;
   height: 350px;
   width: 350px;
-  background: url("./images/club.png");
+  background: url("./images/educator-night.png");
   background-size: cover;
   background-position: center;
 }
 
 .club-text {
+  text-align: center;
   font-size: 14px;
   margin-top: 50px;
   width: 50%;
@@ -106,15 +108,16 @@
 
 .fairs {
   margin-top: 30px;
+  margin-bottom: 30px;
   background-color: #f32424;
   height: auto;
   padding: 100px 0;
-  background: url("./images/bg-2.jpg");
+  background: url("./images/book-bg-200.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: auto;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 .fairs-img {
@@ -124,7 +127,7 @@
 }
 
 .fairs-text {
-  margin-left: 55%;
+  margin-left: 100px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -135,7 +138,7 @@
 }
 .fairs-text h1 {
   font-family: "Cinzel", serif;
-
+  color: #fff;
   font-size: 3rem;
   font-weight: 500;
   padding: 0;
@@ -144,7 +147,35 @@
 
 .fairs-text p {
   font-size: 14px;
+  color: #fff;
   margin-bottom: 0;
+}
+
+.btn-wrapper-fairs {
+  margin-top: 50px;
+  border: 2px solid #fff;
+  display: flex;
+  width: 33%;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn-wrapper-fairs:hover {
+  width: 40%;
+}
+
+.btn-wrapper-fairs .fa-long-arrow-right {
+  background-color: #fff;
+  color: #000;
+  border-left: 2px solid #fff;
+}
+.btn-fairs {
+  background-color: transparent;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
 }
 
 .df {
@@ -152,46 +183,93 @@
   width: 100%;
   background-color: #f32424;
 }
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #541690;
-  border: 1px solid #6118a8;
-  padding: 10px;
-}
-.logo {
-  background: url("./images/logo-tbb-light.png");
-  background-position: center;
-  background-size: 200px;
-  background-repeat: no-repeat;
-  height: 50px;
-  width: 200px;
-  cursor: pointer;
-}
-.footer-div {
-  margin: 0;
-  background-color: #541690;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 200px 100px 50px;
-}
-.footer-div p {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-}
-.footer-div ul {
-  padding-left: 0;
-}
-.footer-div ul li {
-  list-style: none;
-  color: #fff;
-  font-size: 12px;
-  text-align: left;
-  padding-bottom: 10px;
-}
-footer a {
-  text-decoration: none;
-  color: #fff;
+
+@media screen and (max-width: 600px) {
+  .introduce {
+    margin-top: 120px;
+    display: block;
+  }
+
+  .introduce-text {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .introduce-image {
+    height: 300px;
+    width: 300px;
+    background: url("./images/bg-book-light.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .introduce-text h1 {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .introduce-text p {
+    line-height: 1.2;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .btn-wrapper {
+    margin-top: 20px;
+    width: 55%;
+    margin-left: 20%;
+  }
+  .btn-wrapper:hover {
+    width: 60%;
+  }
+  .btn-explore {
+    padding: 5px 10px;
+  }
+
+  .primary-heading {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /*  */
+  .club {
+    margin-top: 20px;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .club-img {
+    margin: 40px 0;
+    height: 300px;
+    width: 300px;
+    background: url("./images/educator-night.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .club-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 50px;
+    width: 100%;
+  }
+  .club-text h1 {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .fairs {
+    padding: 80px 0;
+    height: 200px;
+  }
+  .fairs-text {
+    margin-left: 80px;
+    margin-top: 0;
+  }
+  .fairs-text h1 {
+    font-size: 2rem;
+  }
 }

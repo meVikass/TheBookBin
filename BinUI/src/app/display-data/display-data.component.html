@@ -1,0 +1,62 @@
+<div class="container">
+  <div *ngIf="choice === 'books'" class="ccc">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genres</th>
+        <th>Year</th>
+        <th>Page count</th>
+        <th>Price</th>
+        <th>Added on</th>
+      </tr>
+      <tr *ngFor="let book of data">
+        <td>{{ book.bookName }}</td>
+        <td>{{ book.authorName }}</td>
+        <td>{{ book.genres }}</td>
+        <td>{{ book.year }}</td>
+        <td>{{ book.pageCount }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.creationDate | date }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="choice === 'recentbooks'" class="ccc">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genres</th>
+        <th>Year</th>
+        <th>Page count</th>
+        <th>Price</th>
+        <th>Added on</th>
+      </tr>
+      <tr *ngFor="let book of data">
+        <td>{{ book.bookName }}</td>
+        <td>{{ book.authorName }}</td>
+        <td>{{ book.genres }}</td>
+        <td>{{ book.year }}</td>
+        <td>{{ book.pageCount }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.creationDate | date }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="choice === 'customers'">
+    <table>
+      <tr>
+        <th>User name</th>
+        <th>Email address</th>
+        <th>Added on</th>
+      </tr>
+      <tr *ngFor="let user of data">
+        <td>{{ user.userName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.creationDate | date }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

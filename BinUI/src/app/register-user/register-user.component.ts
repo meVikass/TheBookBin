@@ -61,15 +61,19 @@ export class RegisterUserComponent implements OnInit {
 
   successMessage: any;
   onRegister() {
-    this.userApiService.postUser(this.userForm.value).subscribe(
-      (data) => {
-        this.successMessage = 'Success';
-        this.closeWindow('success');
-      },
-      (error) => {
-        this.successMessage = 'Error';
-      }
-    );
+    if (this.userForm.valid) {
+      this.userApiService.postUser(this.userForm.value).subscribe(
+        (data) => {
+          this.successMessage = 'Success';
+          this.closeWindow('success');
+        },
+        (error) => {
+          this.successMessage = 'Error';
+        }
+      );
+    } else {
+      alert('Form is not valid. Please check the fields');
+    }
   }
 
   closeWindow(value: string) {

@@ -1,0 +1,68 @@
+<div class="dash-board">
+  <div class="panel">
+    <div class="row">
+      <div class="col">
+        <div class="heading-row">
+          <h3>New Customers</h3>
+          <button (click)="onSeeAll('customers')">See all</button>
+        </div>
+        <table>
+          <tr>
+            <th>User name</th>
+            <th>Email address</th>
+            <th>Added on</th>
+          </tr>
+          <tr *ngFor="let user of usersForPreview">
+            <td>{{ user.userName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.creationDate | date }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col">
+        <div class="heading-row">
+          <h3>Recently added books</h3>
+          <button (click)="onSeeAll('recentbooks')">See all</button>
+        </div>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Added on</th>
+          </tr>
+          <tr *ngFor="let book of collectionPreview">
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.authorName }}</td>
+            <td>{{ book.creationDate | date }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="books-row">
+      <div class="heading-row">
+        <h3>Our collection</h3>
+        <button (click)="onSeeAll('books')">See all</button>
+      </div>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genres</th>
+          <th>Year</th>
+          <th>Page count</th>
+          <th>Price</th>
+          <th>Added on</th>
+        </tr>
+        <tr *ngFor="let book of booksForPreview">
+          <td>{{ book.bookName }}</td>
+          <td>{{ book.authorName }}</td>
+          <td>{{ book.genres }}</td>
+          <td>{{ book.year }}</td>
+          <td>{{ book.pageCount }}</td>
+          <td>{{ book.price }}</td>
+          <td>{{ book.creationDate | date }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

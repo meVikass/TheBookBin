@@ -15,24 +15,24 @@ export class FavoriteComponent implements OnInit {
     private ebook: EbookService,
     private user: UserServiceService,
     private router: Router
-  ) {
+  ) {}
+
+  favoriteBooks = [
+    { _id: String, imagePath: String, price: '', bookName: String },
+  ];
+  cartTotal: any;
+  emptyCart = true;
+  ngOnInit(): void {
     this.user.getUserDetails().subscribe(
       (data) => {
         this.global.loggedInUser = data;
-
         this.getBooks();
       },
       (err) => {
-        router.navigate(['/']);
+        this.router.navigate(['/']);
         console.log(err);
       }
     );
-  }
-
-  favoriteBooks = [{ _id: '', imagePath: '', price: '', bookName: '' }];
-  cartTotal: any;
-  ngOnInit(): void {
-    // this.getBooks();
   }
   getBooks() {
     let total = 0;
@@ -40,10 +40,12 @@ export class FavoriteComponent implements OnInit {
       (data) => {
         this.favoriteBooks = [];
         this.favoriteBooks = data;
+
         for (let book of this.favoriteBooks) {
           total = total + parseInt(book.price);
         }
         this.cartTotal = total;
+        if (this.favoriteBooks.length > 0) this.emptyCart = false;
       },
       (err) => {
         console.log(err);
@@ -58,7 +60,6 @@ export class FavoriteComponent implements OnInit {
 
     this.ebook.deleteFavBook(body).subscribe(
       (doc) => {
-        console.log(doc);
         this.getBooks();
       },
       (err) => {
@@ -74,10 +75,10 @@ export class FavoriteComponent implements OnInit {
       };
       this.ebook.checkOutOrder(body).subscribe(
         (data) => {
-          console.log(data);
           for (let book of this.favoriteBooks) {
             this.deleteFromFav(book);
           }
+          this.emptyCart = true;
         },
         (err) => {
           console.log(err);
