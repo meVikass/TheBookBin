@@ -50,7 +50,7 @@ const sendGetRequest = async (doc) => {
   let data = [];
   for (let obj of doc) {
     await axios
-      .get(`http://localhost:3000/books/${obj.bookId}`)
+      .get(`https://the-book-bin.onrender.com/books/${obj.bookId}`)
       .then((res) => {
         data.push(res.data);
       })
